@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 
 //** Connect to DB 
 require('./config/database');
+require('dotenv').config();
 
 //** Instanced Module
 const app = express();
@@ -32,3 +33,5 @@ const PORT = 5000;
 app.listen(PORT, function() {
   console.log(`Server live on port http://localhost:${PORT}`);
 });
+
+
