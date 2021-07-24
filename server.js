@@ -1,10 +1,10 @@
 //** External Modules
 const express = require('express');
 const logger = require('morgan');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 
 //** Internal Modules
-
+const indexRouter = require('./routes/index');
 
 //** Connect to DB 
 require('./config/database');
@@ -23,7 +23,7 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 //** Routes
-
+app.use('/', indexRouter);
 
 //** System Variables
 const PORT = 5000;

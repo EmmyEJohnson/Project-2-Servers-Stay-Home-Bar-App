@@ -14,6 +14,6 @@
   "version": "1.0.0",
   "description": "project 2 server home bar app",
   "main": "server.js",
-  "author": "Emily Johnson",
+  "author": "Emily Johnson, Matthew Slater",
   "license": "MIT"
 }
