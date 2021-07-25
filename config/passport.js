@@ -1,14 +1,16 @@
 // CONFIG passport.js
 
-// const { MongoClient } = require('mongodb');
+const passport = require('passport');
+ 
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-// const client = new MongoClient(process.env.DATABASE_URL, { 
-//   useNewUrlParser: true, 
-//   useUnifiedTopology: true 
-// });
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK
+},
+function(accessToken, refreshToken, profile, cb) {
+  // a user has logged in with OAuth...
+}
+));
 
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
