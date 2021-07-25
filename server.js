@@ -2,6 +2,8 @@
 require('dotenv').config();
 const express = require('express');
 const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
 const methodOverride = require('method-override');
 
 
@@ -20,6 +22,13 @@ app.use(logger('morgan'));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'BarHopRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(methodOverride('_method'));
 
 //** App Configuration
