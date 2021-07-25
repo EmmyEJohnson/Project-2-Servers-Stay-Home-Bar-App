@@ -1,14 +1,16 @@
 //** External Modules
+require('dotenv').config();
 const express = require('express');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+
 
 //** Internal Modules
 const indexRouter = require('./routes/index');
 
 //** Connect to DB 
 require('./config/database');
-require('dotenv').config();
+
 
 //** Instanced Module
 const app = express();
@@ -28,6 +30,7 @@ app.use('/', indexRouter);
 
 //** System Variables
 const PORT = 5000;
+
 
 //** Server Bind
 app.listen(PORT, function() {
