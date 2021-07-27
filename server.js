@@ -6,6 +6,9 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 
+//Video Chat
+
+
 
 //** Internal Modules
 const indexRouter = require('./routes/index');
@@ -36,6 +39,12 @@ app.set('view engine', 'ejs');
 
 //** Routes
 app.use('/', indexRouter);
+
+
+// app.get("/", (req, res) => {
+//   res.render("chat");
+// });
+ 
 
 //** System Variables
 const PORT = 5000;
