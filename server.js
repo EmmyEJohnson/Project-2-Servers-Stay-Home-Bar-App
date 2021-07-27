@@ -4,6 +4,7 @@ const express = require('express');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const methodOverride = require('method-override');
 
 //Video Chat
@@ -15,6 +16,7 @@ const indexRouter = require('./routes/index');
 
 //** Connect to DB 
 require('./config/database');
+require('./config/passport');
 
 
 //** Instanced Module
