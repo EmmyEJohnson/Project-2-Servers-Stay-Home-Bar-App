@@ -16,16 +16,16 @@ passport.use(
         // user logged in with OAuth...
         // console.log('passport callback function fired');
         // console.log(profile);
-    User.findOne({ googleId: profile.id }, function (err, user) {
+    User.findOne({ email: profile.email }, function (err, user) {
       if (err) return cb(err);
       if (user) {
         return cb(null, user);
         } else {
           const newUser = new User ({
-            username: profile.displayName, //from Google
+            name: profile.displayName, //from Google
             email: profile.emails[0].value,
             photo: profile.photos[0].value,
-            googleId: profile.id,
+            id: profile.id,
           });
           newUser.save(function (err) {
             if (err) return cb(err);
