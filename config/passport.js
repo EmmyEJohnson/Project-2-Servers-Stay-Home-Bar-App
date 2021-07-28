@@ -15,7 +15,7 @@ function(accessToken, refreshToken, profile, cb) {
   console.log('passport callback function fired');
   console.log(profile);
   new User ({
-    username: profile.displayName,
+    username: profile.displayName, //from Google
     email: profile.emails[0].value,
     city: profile.city,
     age: profile.age,
@@ -24,3 +24,10 @@ function(accessToken, refreshToken, profile, cb) {
 }
 ));
 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
