@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 
 //** Internal Modules
 const indexRouter = require('./routes/index');
+const userRouter = require('./routes/users')
 
 //** Connect to DB 
 require('./config/database');
@@ -38,7 +39,8 @@ app.set('view engine', 'ejs');
 
 //** Routes
 app.use('/', indexRouter);
- 
+app.use('/', userRouter);
+
 
 //** System Variables
 const PORT = 5000;
