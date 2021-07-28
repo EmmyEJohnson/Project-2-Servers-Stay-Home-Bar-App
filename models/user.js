@@ -5,8 +5,14 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new mongoose.Schema(
   {
-    text: String,
-    drink: String,
+    text: {
+      type: String,
+      required: true,
+    },
+    drink: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -15,17 +21,32 @@ const commentSchema = new mongoose.Schema(
 
 const userSchema = new mongoose.Schema(
   {
-    name: String,
+    name: {
+      type: String,
+      required: true,
+    },
    // should come from Google
-    email: String,
+    email: {
+      type: String,
+      required: true,
+    },
     // should come from Google
-    id: String,
+    id: {
+      type: String,
+      required: true,
+    },
     // should come from Google
-    photo: String,
-    // should come from Google
+    photo: {
+      type: String,
+      required: true,
+    },
+    //comments belong to user
     comments: [commentSchema],
     //User selects 
-    barChoice: String,
+    barChoice: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,
