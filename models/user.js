@@ -7,6 +7,7 @@ const commentSchema = new mongoose.Schema(
   {
     text: String,
     drink: String,
+
   },
   {
     timestamps: true,
@@ -31,6 +32,7 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
 
 module.exports = mongoose.model('User', userSchema);
 
