@@ -4,7 +4,11 @@ const express = require('express');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const methodOverride = require('method-override');
+
+//Video Chat
+
 
 
 //** Internal Modules
@@ -12,6 +16,7 @@ const indexRouter = require('./routes/index');
 
 //** Connect to DB 
 require('./config/database');
+require('./config/passport');
 
 
 //** Instanced Module
@@ -36,6 +41,12 @@ app.set('view engine', 'ejs');
 
 //** Routes
 app.use('/', indexRouter);
+
+
+// app.get("/", (req, res) => {
+//   res.render("chat");
+// });
+ 
 
 //** System Variables
 const PORT = 5000;

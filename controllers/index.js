@@ -8,4 +8,4 @@ module.exports = {
   index
 };
 
-//just for the home page ONLY!
+//just for the VIEWS home page ONLY!
