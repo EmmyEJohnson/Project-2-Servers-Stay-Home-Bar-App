@@ -17,7 +17,7 @@ function(accessToken, refreshToken, profile, cb) {
   new User ({
     username: profile.displayName, //from Google
     email: profile.emails[0].value,
-    city: profile.city,
+    photo: profile.photos[0].value,
     age: profile.age,
     googleId: profile.id,
   }).save()
