@@ -7,9 +7,6 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const methodOverride = require('method-override');
 
-//Video Chat
-
-
 
 //** Internal Modules
 const indexRouter = require('./routes/index');
@@ -43,6 +40,7 @@ app.set('view engine', 'ejs');
 //** Routes
 app.use('/', indexRouter);
 app.use('/', userRouter);
+
 
 //** System Variables
 const PORT = 5000;
