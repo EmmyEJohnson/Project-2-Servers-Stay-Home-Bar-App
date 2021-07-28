@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const commentSchema = new mongoose.Schema(
   {
     text: String,
+    drink: String,
   },
   {
     timestamps: true,
