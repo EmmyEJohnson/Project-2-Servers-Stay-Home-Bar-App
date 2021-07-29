@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema(
     //User selects 
     barChoice: {
       type: String,
-      default: null,
+      default: "A", // For now default A 
     },
   },
   {
