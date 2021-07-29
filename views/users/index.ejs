@@ -2,4 +2,33 @@
 
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
 
-<h1>Test Text</h1>
+<div id="users">
+    <% users.forEach(function(user) { %>
+        <div>
+          <span class="title">
+            <i >Profile:</i>
+            <span class="user-name"><%= user.name %></span>
+            <span class="user-name"><img src="<%= user.photo %>" alt="Profile Picture"></span>
+            <span class="user-name"><%= user.email %></span>
+            <% if (user.barChoice) { %><span class="badge white"
+              >Bar <%= user.barChoice %></span><% } %>
+          </span>
+        </div>
+        <ul class="collection">
+          <% user.comments.forEach(function(comment) { %>
+          <li class="collection-item blue-grey-text text-darken-2">
+            <%= user.comments[0] %>
+            <%= user.comments[1] %>
+          </li>
+          <% }) %>
+        </ul>
+          <% if (user._id.equals(user && user._id)) { %>
+        <div class="comment">
+          <form action="/users" method="POST">
+            <input type="text" name="text" class="white-text" />
+            <button type="submit" class="btn white-text">Add Comment</button>
+          </form>
+        </div>
+        <% } %>
+    <% }) %>
+  </div>
