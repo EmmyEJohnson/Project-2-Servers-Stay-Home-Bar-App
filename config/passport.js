@@ -16,7 +16,7 @@ passport.use(
         // user logged in with OAuth...
         // console.log('passport callback function fired');
         // console.log(profile);
-    User.findOne({ email: profile.email }, function (err, user) {
+    User.findOne({ id: profile.id }, function (err, user) {
       if (err) return cb(err);
       if (user) {
         return cb(null, user);
