@@ -10,9 +10,12 @@ router.post("/comments", isLoggedIn, usersCtrl.addComment);
 // DELETE /comments/:id
 router.delete("/comments/:id", isLoggedIn, usersCtrl.delComment);
 
-module.exports = router;
 
 // Insert this middleware for routes that require a logged in user
 function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/auth/google");}
+  if (req.isAuthenticated()) 
+  return next();
+  res.redirect("/auth/google");
+}
+
+  module.exports = router;
