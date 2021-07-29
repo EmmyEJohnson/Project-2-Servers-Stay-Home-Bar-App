@@ -8,10 +8,12 @@ function index(req, res) {
     if (err) {
       404;
       console.log(err);
-    }
+    } 
+    console.log(req.user); // check if we are keeping the user information 
     res.render("users/index", {
       users,
       name: req.name,
+      currentUser: req.user,
     });
   });
 }
