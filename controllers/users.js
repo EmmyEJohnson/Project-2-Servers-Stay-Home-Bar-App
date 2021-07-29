@@ -2,11 +2,6 @@
 
 const User = require("../models/user");
 
-module.exports = {
-  index,
-  addComment,
-  delComment,
-};
 
 function index(req, res) {
   User.find({}, function (err, users) {
@@ -40,4 +35,8 @@ function delComment(req, res) {
   }
 
   
-  
+  module.exports = {
+    index,
+    addComment,
+    delComment,
+  };
