@@ -22,8 +22,8 @@ function index(req, res) {
 }
 
 function addComment(req, res, next) {
-  req.user.comments.push(req.body);
-  req.user.drinks.push(req.body);
+  req.user.comments.text.push(req.body);
+  req.user.comments.drinks.push(req.body);
   req.user.save(function (err) {
     res.redirect("/users");
   });

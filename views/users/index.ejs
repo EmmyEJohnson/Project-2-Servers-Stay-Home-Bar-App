@@ -1,7 +1,7 @@
 <!-- USERS index.ejs -->
 
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
-
+<html lang="en">
 <div id="users">
     <% users.forEach(function(user) { %>
         <div>
@@ -25,11 +25,14 @@
           <% if (user._id.equals(user && user._id)) { %>
         <div class="comment">
           <form action="/users" method="POST">
-            <input type="text" name="text" class="white-text" />
-            <select name="Drink Selection" id="drink">
+            <input type="text" name="text" id="text" />
+            <select name="Drink Selection" id="drinks">
+                <option value="Default">Select Beverage</option>
                 <option value="Whiskey">Whiskey</option>
                 <option value="Wine">Wine</option>
                 <option value="Vodka">Vodka</option>
+                <option value="Water">Water</option>
+
             </select>
             <button type="submit" class="btn white-text">Add Comment</button>
           </form>
@@ -37,3 +40,4 @@
         <% } %>
     <% }) %>
   </div>
+  </html>
