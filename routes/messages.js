@@ -7,4 +7,4 @@
 
 // router.get('/', messagesCtrl.index);
 
-// module.exports = router;
+module.exports = router;

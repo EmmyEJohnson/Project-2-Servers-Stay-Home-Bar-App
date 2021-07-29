@@ -1,7 +1,7 @@
 <!-- USERS index.ejs -->
 
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
-
+<html lang="en">
 <div id="users">
     <% users.forEach(function(user) { %>
         <div>
@@ -9,26 +9,34 @@
             <i >Profile:</i>
             <span class="user-name"><%= user.name %></span>
             <span class="user-name"><img src="<%= user.photo %>" alt="Profile Picture"></span>
-            <span class="user-name"><%= user.email %></span>
             <% if (user.barChoice) { %><span class="badge white"
               >Bar <%= user.barChoice %></span><% } %>
           </span>
         </div>
-        <ul class="collection">
+        <ul class="comments">
           <% user.comments.forEach(function(comment) { %>
           <li class="collection-item blue-grey-text text-darken-2">
-            <%= user.comments[0] %>
-            <%= user.comments[1] %>
+            <%= comment.text %>
+            <%= comment.drink %>
           </li>
           <% }) %>
         </ul>
-          <% if (user._id.equals(user && user._id)) { %>
-        <div class="comment">
-          <form action="/users" method="POST">
-            <input type="text" name="text" class="white-text" />
+          <% içf (user._id.equals(user && user._id)) { %>
+        <div class="newcomment">
+          <form action="/users/<%= user._id %>" method="POST">
+            <input type="text" name="text" id="text" />
+            <select name="drink" id="drink">
+                <option value="Default"></option>
+                <option value="Whiskey">Whiskey</option>
+                <option value="Wine">Wine</option>
+                <option value="Vodka">Vodka</option>
+                <option value="Water">Water</option>
+            </select>
             <button type="submit" class="btn white-text">Add Comment</button>
           </form>
         </div>
         <% } %>
+        <button type="delete" class="btn white-text" method="DELETE">Delete Comment</button>
     <% }) %>
   </div>
+  </html>

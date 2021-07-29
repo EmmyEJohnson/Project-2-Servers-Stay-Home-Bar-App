@@ -5,10 +5,10 @@ const usersCtrl = require("../controllers/users");
 
 router.get("/users", isLoggedIn, usersCtrl.index);
 
-router.post("/comments", isLoggedIn, usersCtrl.addComment);
+router.post("/users/:id", isLoggedIn, usersCtrl.addComment);
 
 // DELETE /comments/:id
-router.delete("/comments/:id", isLoggedIn, usersCtrl.delComment);
+router.delete("/users/:id", isLoggedIn, usersCtrl.delComment);
 
 
 // Insert this middleware for routes that require a logged in user
