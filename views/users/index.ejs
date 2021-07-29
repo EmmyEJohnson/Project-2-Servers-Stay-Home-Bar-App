@@ -21,7 +21,7 @@
           </li>
           <% }) %>
         </ul>
-          <% içf (user._id.equals(user && user._id)) { %>
+          <% if (user._id.equals(user && user._id)) { %>
         <div class="newcomment">
           <form action="/users/<%= user._id %>" method="POST">
             <input type="text" name="text" id="text" />
