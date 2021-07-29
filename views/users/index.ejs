@@ -21,22 +21,23 @@
           </li>
           <% }) %>
         </ul>
-          <% içf (user._id.equals(user && user._id)) { %>
-        <div class="newcomment">
-          <form action="/users/<%= user._id %>" method="POST">
-            <input type="text" name="text" id="text" />
-            <select name="drink" id="drink">
+        <% if (user._id.equals(currentUser._id)) { %>
+          <div class="newcomment">
+            <form action="/users/<%= user._id %>" method="POST">
+              <input type="text" name="text" id="text" />
+              <select name="drink" id="drink">
                 <option value="Default"></option>
                 <option value="Whiskey">Whiskey</option>
                 <option value="Wine">Wine</option>
                 <option value="Vodka">Vodka</option>
                 <option value="Water">Water</option>
-            </select>
-            <button type="submit" class="btn white-text">Add Comment</button>
-          </form>
+              </select>
+              <button type="submit" class="btn white-text">Add Comment</button>
+            </form>
+            <!-- <button type="delete" class="btn white-text" method="DELETE">Delete Comment</button> -->
         </div>
         <% } %>
-        <button type="delete" class="btn white-text" method="DELETE">Delete Comment</button>
+        <!-- Split up the form actions so they are able to  -->
     <% }) %>
   </div>
   </html>
