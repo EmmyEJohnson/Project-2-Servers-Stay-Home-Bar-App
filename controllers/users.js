@@ -12,6 +12,7 @@ function index(req, res) {
     res.render("users/index", {
       users,
       name: req.name,
+      currentUser: req.user,
     });
   });
 }
@@ -54,7 +55,6 @@ function delComment(req, res, next) {
 
     let comment = {
       text:(req.body.text),
-      drink:(req.body.drink),
     }
 
     user.comments.remove(comment);

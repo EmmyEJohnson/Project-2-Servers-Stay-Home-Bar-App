@@ -8,6 +8,7 @@ const commentSchema = new mongoose.Schema(
     text: {
       type: String,
       required: true,
+
     },
     drink: {
       type: String,
