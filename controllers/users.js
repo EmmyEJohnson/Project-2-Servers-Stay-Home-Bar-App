@@ -8,42 +8,63 @@ function index(req, res) {
     if (err) {
       404;
       console.log(err);
-    } 
-    console.log(req.user); // check if we are keeping the user information 
+    }
     res.render("users/index", {
       users,
       name: req.name,
-      currentUser: req.user,
     });
   });
 }
 
 function addComment(req, res, next) {
   console.log(req.params.id);
-  User.findById(req.params.id,function(err, user){
+
+  User.findById(req.params.id, function(err, user) {
     console.log(user);
-    if (err) return res.send(err); console.log(req.body);
+
+    if (err) 
+      return res.send(err); 
+    console.log(req.body);
+
     let comment = {
       text:(req.body.text),
       drink:(req.body.drink),
     }
+
     user.comments.push(comment);
     console.log(user.comments);
+
     user.save(function (err) {
       res.redirect("/users");
      });
-})};
+  })
+};
 
 //delete function should only remove comments. We will keep the drinks record 
 
-function delComment(req, res) {
-    user.comments.findById(req.params.id).populate('user').exec(function(err, comment) {
-      user.comments.findByIdAndDelete(req.params.id, function(err) {
-        res.redirect(`/users/${comments.user._id}`);
-      });
-    });
-  }
+function delComment(req, res, next) {
+  console.log(req.params.id);
 
+  User.findOneAndRemove(req.params.id, function(err, user) {
+    console.log(user);
+
+    if (err) 
+      return res.send(err); 
+    console.log(req.body);
+
+    let comment = {
+      text:(req.body.text),
+      drink:(req.body.drink),
+    }
+
+    user.comments.remove(comment);
+    console.log(user.comments);
+
+    user.save(function (err) {
+      res.redirect("/users");
+     });
+  })
+};
   
   module.exports = {
     index,

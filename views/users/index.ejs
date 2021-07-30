@@ -2,6 +2,24 @@
 
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
 <html lang="en">
+  
+    <nav> 
+        <ul class="right">
+          <li><a href="/">Home</a></li>
+          <li>
+            <% if (users) { %>
+            <a href="/logout"
+              ><i class="material-icons left"></i>Log Out</a
+            >
+            <% } else { %>
+            <a href="/auth/google"
+              ><i class="material-icons left">vpn_key</i>Login with Google</a
+            >
+            <% } %>
+          </li>
+        </ul> 
+    </nav>
+ 
 <div id="users">
     <% users.forEach(function(user) { %>
         <div>
@@ -19,24 +37,28 @@
             <%= comment.text %>
             <%= comment.drink %>
           </li>
+          <form action="/users/<%= user._id %>?_method=DELETE" method="POST" id="delete-comment">
+            <button type="delete" class="btn white-text" method="DELETE" id="delCommentBtn">Delete Comment</button>
+        </form>
           <% }) %>
         </ul>
 
-        <% if (user._id.equals(currentUser._id)) { %>
-          <div class="newcomment">
+        <% if (user._id.equals(user._id)) { %>
+          <div class="newComment">
             <form action="/users/<%= user._id %>" method="POST">
               <input type="text" name="text" id="text" />
               <select name="drink" id="drink">
 
                 <option value="Default"></option>
-                <option value="Whiskey">Whiskey</option>
-                <option value="Wine">Wine</option>
-                <option value="Vodka">Vodka</option>
-                <option value="Water">Water</option>
+                <option value=" || Currently Drinking: Whiskey">Whiskey</option>
+                <option value=" || Currently Drinking: Beer">Beer</option>
+                <option value=" || Currently Drinking: Wine">Wine</option>
+                <option value=" || Currently Drinking: Vodka">Vodka</option>
+                <option value=" || Currently Drinking: Water">Water</option>
               </select>
-              <button type="submit" class="btn white-text">Add Comment</button>
+              <button type="submit" class="btn white-text" id="addCommentBtn">Add Comment</button>
             </form>
-            <!-- <button type="delete" class="btn white-text" method="DELETE">Delete Comment</button> -->
+            <!-- <button type="delete" class="btn white-text" method="DELETE" id="delCommentBtn">Delete Comment</button> -->
         </div>
         <% } %>
         <!-- Split up the form actions so they are able to  -->
