@@ -20,14 +20,11 @@
 
     </nav>
 
- 
-<div id="users">
+    <div id="users">
+      <h1>Welcome To: <%= currentUser.barChoice %></h1><br><br>
 
-    <% users.forEach(function(user) { %>
-      
-      <h1>Welcome To: <%= user.barChoice %></h1><br><br>
-
-
+      <% users.forEach(function(user) { %>
+        <% if (currentUser.barChoice===user.barChoice) { %>
         <div>
         <span class="title">
             <b> Profile: </b><br><br>
@@ -35,7 +32,7 @@
             <span class="user-name"> <%= user.name %> </span><br><br>
             <span class="user-photo"><img src="<%= user.photo %>" alt="Profile Picture"></span><br><br>
 
-    <% if (user.barChoice) { %><span class="badge white"> Bar
+    <% if (user.barChoice) { %><span class="badge white">
     <%= user.barChoice %></span><% } %>
 
           </span><br><br>
@@ -83,8 +80,9 @@
               <button type="submit" class="btn white-text" id="addCommentBtn" style="height:20px; width:60px;"><span class="iconify" data-icon="icon-park-outline:message-emoji" data-inline="false"></span></button>
             </form>
         </div>
-        <% } %>
-    <% }) %>
+          <% } %>
+          <% } %>
+          <% }) %>
   </div>
 
   </div>
