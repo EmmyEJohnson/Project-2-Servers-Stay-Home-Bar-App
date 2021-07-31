@@ -10,17 +10,23 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
   <!-- Materialize Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- Materialize CSS Framework -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   <link rel="stylesheet" href="/css/style.css" />
-  <!-- JavaScript for Materialize -->
-  <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-  <!-- WebSocket for Chat -->
-  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <script defer src="/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity=
+"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous">
+</script>
+
+<script src="jquery.hoverplay.js"></script>
   <!-- Font Awesome Kit -->
   <script src="https://kit.fontawesome.com/3b1a86ebe3.js" crossorigin="anonymous"></script>
 
-
+  <!-- WebSocket for Chat (icebox)-->
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
   <title>Stay At Home Bar Hopping</title>
 </head>
 <body>
@@ -28,17 +34,41 @@
     
   <h1 id="viewH1" >Welcome to The Virtual Stir</h1>
 
-  <h3 class="viewIndexH3">Invite Your Friends or Meet New People</h3>
-  <h3 class="viewIndexH3">Crawl, Hop, or Become a Regular</h3>
-  <h3 class="viewIndexH3">Enjoy Bars Across the U.S. From The Comfort of Your Home</h3>
+    <h3 class="viewIndexH3">Invite Your Friends or Meet New People</h3>
+    <h3 class="viewIndexH3">Crawl, Hop, or Become a Regular</h3>
+    <h3 class="viewIndexH3">Enjoy Bars Across the U.S. From The Comfort of Your Home</h3><br><br>
+
+    <!-- <h4 id="viewH4"><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></h4><br><br> -->
+
+    <h2>Views Bars Below</h2>
+  <div id="viewBars">
+  <div id="video-wrapper1">
+    <video id="video1" width="520" height="340" 
+        controls data-play="hover">
+        <source src=
+"https://player.vimeo.com/external/274197642.sd.mp4?s=f988ff97aee8353a349a3d8d4a2c8c9ed9952cf3&profile_id=164&oauth2_token_id=57447761"
+            type="video/mp4">
+        Your browser does not 
+        support the video tag.
+    </video>
+</div>
+
+<div id="video-wrapper2">
+    <video id="video2" width="520" height="340" 
+        controls data-play="hover">
+        <source src=
+"https://player.vimeo.com/external/377870340.sd.mp4?s=a8b0cd475b521334e3f0dbff49788fa27c4e75ac&profile_id=139&oauth2_token_id=57447761"
+            type="video/mp4">
+        Your browser does not 
+        support the video tag.
+    </video>
+</div>
+  </div>
 
 
+  <h4 id="viewH4"><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></h4><br><br>
 
-  <h4 id="viewH4"><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></h4>
-
-
- </div>
-
-</body>
-  <script src="script.js"></script>
+    </div>
+  </body>
 </html>
+

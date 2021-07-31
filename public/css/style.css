@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Special+Elite&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
 }
 
-#viewIndex {
-  display: flex;
-  text-align: center;
+.viewIndex {
+    text-align: center;
+    /*font-family: 'Ruslan Display', cursive;*/
+    font-family: 'Special Elite', cursive;
+  }
+
+#viewH1 {
+  font-size: 100px;
 }
 
 input[type="text"] {
@@ -29,5 +38,21 @@ ul {
 }
 
 #users {
-  
+
+}
+
+
+
+
+
+
+
+
+audio::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline {
+    display: none;
+}
+audio::-webkit-media-controls,
+video::-webkit-media-controls {
+    display: none;
 }
