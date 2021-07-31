@@ -13,7 +13,7 @@ const commentSchema = new mongoose.Schema(
     drink: {
       type: String,
       required: true,
-    },
+    }
   },
   {
     timestamps: true,
@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema(
     //User selects 
     barChoice: {
       type: String,
-      default: "",
+      default: "", 
     },
   },
   {

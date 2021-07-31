@@ -25,6 +25,14 @@
 
 // background
 
+//Sort forum table 
+function sortForum() {
+    let forum = document.getElementById("forum");
+    forum.sort(function(x, y){
+        return x.timestamp - y.timestamp;
+    })
+}
+
 
 
 
