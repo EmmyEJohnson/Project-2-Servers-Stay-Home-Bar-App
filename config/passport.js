@@ -17,7 +17,8 @@ passport.use(
         // console.log('passport callback function fired');
         // console.log(profile);
     User.findOne({ id: profile.id }, function (err, user) {
-      if (err) return cb(err);
+      if (err) 
+        return cb(err);
       if (user) {
         return cb(null, user);
         } else {
@@ -28,7 +29,8 @@ passport.use(
             id: profile.id,
           });
           newUser.save(function (err) {
-            if (err) return cb(err);
+            if (err) 
+              return cb(err);
             return cb(null, newUser);
           });
         }

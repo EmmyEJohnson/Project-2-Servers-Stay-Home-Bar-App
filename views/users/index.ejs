@@ -1,17 +1,36 @@
 <!-- USERS index.ejs -->
-
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/style.css" />
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
 <html lang="en">
+  
+    <nav> 
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li>
+            <% if (users) { %>
+            <a href="/logout"
+              ><i class="material-icons left"></i>Log Out</a
+            >
+            <% } else { %>
+            <a href="/auth/google"
+              ><i class="material-icons left">vpn_key</i>Login with Google</a
+            >
+            <% } %>
+          </li>
+        </ul> 
+    </nav>
+ 
 <div id="users">
     <% users.forEach(function(user) { %>
         <div>
           <span class="title">
-            <i >Profile:</i>
-            <span class="user-name"><%= user.name %></span>
-            <span class="user-name"><img src="<%= user.photo %>" alt="Profile Picture"></span>
+            <i><b> Profile: </b></i><br><br>
+            <span class="user-name"> <%= user.name %> </span><br><br>
+            <span class="user-photo"><img src="<%= user.photo %>" alt="Profile Picture"></span><br><br>
             <% if (user.barChoice) { %><span class="badge white"
               >Bar <%= user.barChoice %></span><% } %>
-          </span>
+          </span><br><br>
         </div>
         <ul class="comments">
           <% user.comments.forEach(function(comment) { %>
@@ -19,27 +38,32 @@
             <%= comment.text %>
             <%= comment.drink %>
           </li>
+          <form action="/users/<%= user._id %>?_method=DELETE" method="POST" id="delete-comment">
+            <button type="delete" class="btn white-text" method="DELETE" id="delCommentBtn">Delete Comment</button>
+        </form>
           <% }) %>
         </ul>
 
         <% if (user._id.equals(currentUser._id)) { %>
-          <div class="newcomment">
+          <div class="newComment">
             <form action="/users/<%= user._id %>" method="POST">
               <input type="text" name="text" id="text" />
               <select name="drink" id="drink">
 
                 <option value="Default"></option>
-                <option value="Whiskey">Whiskey</option>
-                <option value="Wine">Wine</option>
-                <option value="Vodka">Vodka</option>
-                <option value="Water">Water</option>
+                <option value=" || Currently Drinking: Whiskey">Whiskey</option>
+                <option value=" || Currently Drinking: Beer">Beer</option>
+                <option value=" || Currently Drinking: Wine">Wine</option>
+                <option value=" || Currently Drinking: Vodka">Vodka</option>
+                <option value=" || Currently Drinking: Water">Water</option>
               </select>
-              <button type="submit" class="btn white-text">Add Comment</button>
+              <button type="submit" class="btn white-text" id="addCommentBtn">Add Comment</button>
             </form>
-            <!-- <button type="delete" class="btn white-text" method="DELETE">Delete Comment</button> -->
+            <!-- <button type="delete" class="btn white-text" method="DELETE" id="delCommentBtn">Delete Comment</button> -->
         </div>
         <% } %>
         <!-- Split up the form actions so they are able to  -->
     <% }) %>
   </div>
   </html>
+
