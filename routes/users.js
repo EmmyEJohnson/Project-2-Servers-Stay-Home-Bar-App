@@ -8,7 +8,7 @@ router.get("/users", isLoggedIn, usersCtrl.index);
 router.post("/users/:id", isLoggedIn, usersCtrl.addComment);
 
 // DELETE /comments/:id
-router.delete("/users/:id", isLoggedIn, usersCtrl.delComment);
+router.delete("/comments/:id/", isLoggedIn, usersCtrl.delComment);
 
 
 // Insert this middleware for routes that require a logged in user
