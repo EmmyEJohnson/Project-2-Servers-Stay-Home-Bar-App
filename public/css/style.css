@@ -41,6 +41,10 @@
   margin-top: 2%;
 }
 
+.chatPage {
+  font-family: 'Special Elite', cursive;
+}
+
 input[type="text"] {
   width: 350px;
   height: 50px;
@@ -55,14 +59,18 @@ ul {
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  margin-top: 2%;
 }
 
 #userLogout {
-  margin-left: 80%;
+  margin-left: 85%;
 }
 
 #users {
-
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 
@@ -72,6 +80,8 @@ ul {
 
 
 
+
+/* Makes playbar on videos disappear */
 audio::-webkit-media-controls-timeline,
 video::-webkit-media-controls-timeline {
     display: none;
