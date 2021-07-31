@@ -48,6 +48,7 @@
 input[type="text"] {
   width: 350px;
   height: 50px;
+  padding: 10px;
 }
 
 ul {
@@ -71,6 +72,9 @@ ul {
   flex-direction: column;
   margin-top: 5%;
   margin-left: 5%;
+}
+
+#addCommentBtn {
 }
 
 
