@@ -61,7 +61,6 @@ function delComment(req, res, next) {
 
     user.save(function (err) {
       console.log(user);
-      console.log("I am the user after a save");
       console.log(err)
       res.redirect("/users");
      });
