@@ -1,1 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
+#viewIndex {
+  display: flex;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 350px;
+  height: 50px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.userNav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+#userLogout {
+  margin-left: 80%;
+}
+
+#users {
+  
+}

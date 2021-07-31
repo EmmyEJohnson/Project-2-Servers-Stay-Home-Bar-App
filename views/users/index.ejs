@@ -6,50 +6,59 @@
 <html lang="en">
   
     <nav class="userNav"> 
-        <ul>
-          <li><a href="/" id="home">Home</a></li>
-          <li>
-            <% if (users) { %>
-            <a href="/logout" id="userLogout"
-              ><i class="material-icons left"></i>Log Out</a
-            >
-            <% } else { %>
-            <a href="/auth/google"
-              ><i class="material-icons left">vpn_key</i>Login with Google</a
-            >
-            <% } %>
-          </li>
-        </ul> 
+
+          <a href="/" id="home"><span class="iconify" data-icon="healthicons:home-negative" data-inline="false" width="40px" height="40px"></span><br><span id="homepage">Home</span></a>
+
+    <% if (users) { %>
+
+          <a href="/logout" id="userLogout"><span class="iconify" data-icon="ls:logout" data-inline="false" width="40px" height="40px"></span><br><span>LogOut</span></a>
+
+    <% } else { %>
+
+          <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+    <% } %>
+
     </nav>
  
 <div id="users">
+
     <% users.forEach(function(user) { %>
+
         <div>
-          <span class="title">
-            <i><b> Profile: </b></i><br><br>
+        <span class="title">
+            <b> Profile: </b><br><br>
+
             <span class="user-name"> <%= user.name %> </span><br><br>
             <span class="user-photo"><img src="<%= user.photo %>" alt="Profile Picture"></span><br><br>
-            <% if (user.barChoice) { %><span class="badge white"
-              >Bar <%= user.barChoice %></span><% } %>
+
+    <% if (user.barChoice) { %><span class="badge white"> Bar
+    <%= user.barChoice %></span><% } %>
+
           </span><br><br>
         </div>
+
         <ul class="comments">
+
           <% user.comments.forEach(function(comment) { %>
+
           <li class="collection-item blue-grey-text text-darken-2">
             <%= comment.text %>
-            <%= comment.id %>
-            <%= comment._id %>
             <%= comment.drink %>
           </li>
+
           <% if (user._id.equals(currentUser._id)) { %>
+
           <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST" id="delete-comment">
-            <button type="delete" class="btn white-text"  id="delCommentBtn">Delete Comment</button>
-        </form>
-        <% } %>
+            <button type="delete" class="btn white-text"  id="delCommentBtn"><span class="iconify" data-icon="fa-solid:dumpster-fire" data-inline="false"></span></button>
+          </form>
+
+          <% } %>
           <% }) %>
-        </ul>
+
+          </ul><br><br>
 
         <% if (user._id.equals(currentUser._id)) { %>
+
           <div class="newComment">
             <form action="/users/<%= user._id %>" method="POST">
               <input type="text" name="text" id="text" value="Message..."
@@ -65,12 +74,12 @@
                 <option value=" ||  Currently Drinking: Vodka"> Vodka </option>
                 <option value=" ||  Currently Drinking: Water"> Water </option>
               </select>
-              <button type="submit" class="btn white-text" id="addCommentBtn">Add Comment</button>
+
+              
+              <button type="submit" class="btn white-text" id="addCommentBtn"><span class="iconify" data-icon="icon-park-outline:message-emoji" data-inline="false"></span></button>
             </form>
-            <!-- <button type="delete" class="btn white-text" method="DELETE" id="delCommentBtn">Delete Comment</button> -->
         </div>
         <% } %>
-        <!-- Split up the form actions so they are able to  -->
     <% }) %>
   </div>
   </html>
