@@ -18,14 +18,14 @@ function index(req, res) {
 }
 
 function addComment(req, res, next) {
-  console.log(req.params.id);
+  // console.log(req.params.id);
 
   User.findById(req.params.id, function(err, user) {
-    console.log(user);
+    // console.log(user);
 
     if (err) 
       return res.send(err); 
-    console.log(req.body);
+    // console.log(req.body);
 
     let comment = {
       text:(req.body.text),
@@ -33,7 +33,7 @@ function addComment(req, res, next) {
     }
 
     user.comments.push(comment);
-    console.log(user.comments);
+    // console.log(user.comments);
 
     user.save(function (err) {
       res.redirect("/users");
@@ -44,23 +44,25 @@ function addComment(req, res, next) {
 //delete function should only remove comments. We will keep the drinks record 
 
 function delComment(req, res, next) {
-  console.log(req.params.id);
+  // console.log(req.user.id);
+  console.log(req.url);
 
-  User.findOneAndRemove(req.params.id, function(err, user) {
+  User.findById(req.user._id, function(err, user) {
     console.log(user);
 
-    if (err) 
-      return res.send(err); 
-    console.log(req.body);
-
-    let comment = {
-      text:(req.body.text),
+    if (err) {
+      console.log(err);
     }
+    //   return res.send(err); 
+    // console.log(req.body);
 
-    user.comments.remove(comment);
-    console.log(user.comments);
+    user.comments.id(req.params.id).remove();
+    // console.log(user.comments);
 
     user.save(function (err) {
+      console.log(user);
+      console.log("I am the user after a save");
+      console.log(err)
       res.redirect("/users");
      });
   })
