@@ -74,6 +74,15 @@ ul {
   margin-left: 5%;
 }
 
+.newComment {
+  margin-bottom: 2%;
+}
+
+
+#delCommentBtn {
+  background: transparent;
+  border: transparent;
+}
 #addCommentBtn {
 }
 
