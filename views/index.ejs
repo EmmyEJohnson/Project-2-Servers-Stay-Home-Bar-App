@@ -56,7 +56,9 @@
     </video>
 </div>
 <h4 id="viewH4"><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></h4><br><br>
-<h4 class="viewH4"><a href="/Users" id="A" action="/users" method="POST">Enter Bar A</h4><br><br>
+<% if (user) { %>
+  <h4 class="viewH4"><a href="/Users/barChoice?barChoice=A" >Enter Bar A</h4><br><br>
+    <% } %>
 <div id="video-wrapper2">
     <video id="video2" width="520" height="340" 
         controls data-play="hover">
@@ -68,10 +70,10 @@
     </video>
 </div>
 <h4 id="viewH4"><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></h4><br><br>
-  <h4 class="viewH4"><a href="/Users" id="B" action="/index" method="POST">Enter Bar B</h4><br><br>
-  </div>
-
-
+<% if (user) { %>
+<h4 class="viewH4"><a href="/Users/barChoice?barChoice=B" >Enter Bar B</h4><br><br>
+</div>
+<% } %>
 
     </div>
   </body>

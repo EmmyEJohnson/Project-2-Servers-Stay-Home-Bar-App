@@ -1,5 +1,5 @@
 //CONTROLLERS index.js
-
+const User = require("../models/user");
 
 function index(req, res) {
   res.render('index', {
@@ -11,24 +11,16 @@ function index(req, res) {
 
 function addBarChoice(req, res, next) {
 
-  User.findById(req.params.id, function(err, user) {
+  User.findByIdAndUpdate(req.user._id, req.query, (err, user) => {
+    if (err) {
+        return res
+            .status(500)
+            .send({error: "unsuccessful"})
+    };
+    res.redirect("/Users");
+})};
 
-    if (err) 
-      return res.send(err); 
-   
-
-    let selection = {
-      barChoice:(req.body.id),
-    }
-
-    user.barChoice.push(selection);
-    console.log(user.selection);
-
-    user.save(function (err) {
-      res.redirect("/users");
-     });
-  })
-};
+ 
 
 
 

@@ -6,8 +6,7 @@ const indexCtrl = require("../controllers/index")
 
 router.get("/index", isLoggedIn, indexCtrl.index);
 
-router.post("/index/:id", isLoggedIn, indexCtrl.addBarChoice);
-
+router.get("/Users/barChoice", isLoggedIn, indexCtrl.addBarChoice);
 
 router.get('/', function(req, res) {
   res.render('index', {
