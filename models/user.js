@@ -13,7 +13,8 @@ const commentSchema = new mongoose.Schema(
     drink: {
       type: String,
       required: true,
-    }
+    },
+    time: { type: Number, default: (new Date()).getTime() },
   },
   {
     timestamps: true,
