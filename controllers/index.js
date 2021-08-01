@@ -6,6 +6,7 @@ function index(req, res) {
     users,
     name: req.name,
     currentUser: req.user,
+    comments:req.user.comments,
   });
 }
 

@@ -14,6 +14,7 @@ const commentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    time: { type: Number, default: (new Date()).getTime() },
   },
   {
     timestamps: true,
@@ -46,7 +47,7 @@ const userSchema = new mongoose.Schema(
     //User selects 
     barChoice: {
       type: String,
-      default: "",
+      default: "", 
     },
   },
   {
