@@ -43,12 +43,12 @@ app.use('/', userRouter);
 
 
 //** System Variables
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 
 //** Server Bind
 app.listen(PORT, function() {
-  console.log(`Server live on port http://localhost:${PORT}`);
+  console.log(`Server live on port ${PORT}`);
 });
 
 
