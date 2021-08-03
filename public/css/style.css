@@ -43,7 +43,12 @@
 
 .chatPage {
   font-family: 'Special Elite', cursive;
+  background-image: url('https://s7.orientaltrading.com/is/image/OrientalTrading/13808117?$PDP_VIEWER_IMAGE$');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
+
 
 input[type="text"] {
   width: 350px;
@@ -74,12 +79,39 @@ ul {
   margin-left: 5%;
 }
 
+
+.newComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.options {
+  color: grey;
+}
+
+#delete-comment {
+  margin-right: 900px;
+}
+
+#delCommentBtn {
+  color: red;
+  background: transparent;
+  border: transparent;
+}
+
 #addCommentBtn {
+  color: rgba(0, 0, 225, .7);
+  background: transparent;
+  border: transparent;
 }
 
 .newComment {
   margin-bottom: 2%;
 }
+
+
 
 
 
