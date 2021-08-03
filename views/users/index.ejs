@@ -4,7 +4,10 @@
   </header>
 <!-- When user goes through Google OAuth and is now admitted into the bar of choice -->
 <html lang="en">
-  <div class="chatPage">
+  <body class="chatPage">
+    
+
+  
     <nav class="userNav"> 
 
           <a href="/" id="home"><span class="iconify" data-icon="healthicons:home-negative" data-inline="false" width="40px" height="40px"></span><br><span id="homepage">Home</span></a>
@@ -24,7 +27,7 @@
       <h1>Welcome To: <%= currentUser.barChoice %></h1><br><br>
 
       <% users.forEach(function(user) { %>
-        <% if (currentUser.barChoice===user.barChoice) { %>
+        <% if (currentUser.barChoice === user.barChoice) { %>
         <div>
         <span class="title">
             <b> Profile: </b><br><br>
@@ -38,26 +41,30 @@
           </span><br><br>
         </div>
 
-        <ul class="comments">
-
+        <table>
+          <thead>
+            <th class="comments"></th>
+        <tbody>
           <% user.comments.forEach(function(comment) { %>
-
-          <li class="collection-item blue-grey-text text-darken-2">
-            <%= comment.text %>
-            <%= comment.drink %>
-          </li>
-
-          <% if (user._id.equals(currentUser._id)) { %>
-
-          <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST" id="delete-comment">
-            <button type="delete" class="btn white-text"  id="delCommentBtn"><span class="iconify" data-icon="fa-solid:dumpster-fire" data-inline="false"></span></button>
-          </form><br>
+        
+        <tr>
+            <td><%= comment.text %><br>
+                <%= comment.drink %></td>
+       
+            <% if (user._id.equals(currentUser._id)) { %>
+             <td>  
+              <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST" id="delete-comment">
+              <button type="delete" class="btn white-text"  id="delCommentBtn"><span class="iconify" data-icon="fa-solid:dumpster-fire" data-inline="false"></span></button>
+              </form>
+            </td>
+        </tr>
 
           <% } %>
           <% }) %>
 
-          </ul><br><br>
-
+        </tbody>
+          </thead>
+        </table><br>
         <% if (user._id.equals(currentUser._id)) { %>
 
           <div class="newComment">
@@ -77,7 +84,7 @@
               </select>
 
               
-              <button type="submit" class="btn white-text" id="addCommentBtn" style="height:20px; width:60px;"><span class="iconify" data-icon="icon-park-outline:message-emoji" data-inline="false"></span></button>
+              <button type="submit" class="btn white-text" id="addCommentBtn"><span class="iconify" data-icon="icon-park-outline:message-emoji" data-inline="false" style="height:35px; width:65px;"></span></button>
             </form>
         </div>
           <% } %>
@@ -85,7 +92,8 @@
           <% }) %>
   </div>
 
-  </div>
+
+  </body>
   </html>
 
   <footer>

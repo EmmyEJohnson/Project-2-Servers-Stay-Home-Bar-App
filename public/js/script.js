@@ -23,8 +23,7 @@
  });
 
 
-// background
-
+// background for user index.ejs
 
 
 
